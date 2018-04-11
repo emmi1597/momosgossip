@@ -3,7 +3,7 @@
 
   	if (!empty($_POST['user'])) {
     	$user = $_POST['user'];
-    	$pas = $_POST['pas'];
+    	$pas = $_POST['psw'];
     	$stmt = $pdo->prepare("SELECT * FROM signup WHERE name = :nombre");
 		$stmt->execute([
 			':nombre'=>$user

@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {font-family: serif, sans-serif, serif;}
+body {font-family: Coming Soon, sans-serif, serif;}
 
 input[type=text], input[type=password], input[type=date] {
     width: 100%;
@@ -241,7 +241,7 @@ document.getElementById("defaultOpen").click();
   <form class="modal-content animate" action="logear.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-      <img src="login.png" alt="Avatar" class="avatar">
+      <img src="login.png" alt="Avatar" class="Avatar">
     </div>
 
     <div class="container">
@@ -285,14 +285,14 @@ window.onclick = function(event) {
       <h1>Sign Up</h1>
       <p> Crea tu usuario</p>
       <hr>
-      <label for="nombre"><b>Nombre </b></label>
+      <label for="nombre"><b>Nombres </b></label>
       <input type="text" placeholder="Enter Name" name="nombre" required>
 
       <label for="email"><b>Email</b></label>
       <input type="text" placeholder="Enter Email" name="email" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw1" required>
+      <input type="password" placeholder="Enter Password" name="psw" required>
 
       <label date="cumpleaños"><b>Birthday</b></label>
       <input input type="date" name="fecha" required>
