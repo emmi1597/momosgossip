@@ -1,24 +1,4 @@
-<?php 
-	require "./database.php";
 
-  	if (!empty($_POST['user'])) {
-    	$user = $_POST['user'];
-    	$psw = $_POST['psw'];
-    	$stmt = $pdo->prepare("SELECT * FROM signup WHERE name = :nombre");
-		$stmt->execute([
-			':nombre'=>$user
-		]);
-		$result = $stmt->FETCH();
-		if ($result !== false) {
-			echo '';
-		} else{
-			echo "error";
-		}
-    	// echo $user.$pas;
-  	} 
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,26 +20,37 @@
   .clear{
     clear: both;
   }
-  .fa-snapchat-ghost {
-  background: #fffc00;
-  color: white;
-  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    padding: 20px;
-    font-size: 30px;
-    width: 30px;
-    text-align: right;
-    text-decoration: none;
-    border-radius: 50%;
+  .header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
 }
-}
+
+<? 
+session_start(); 
+header('Location: logear.php'); 
+
+if (!isset($_SESSION['nombre'])) { 
+    $_SESSION['nombre'] = $_REQUEST['nombre']; 
+}  
+
+if ($_SESSION['nombre']===NULL){ 
+
+}else{ 
+    echo " Welcome ". $_SESSION["nombre"];} 
+?>
+
   </style>
 </head>
-<body style="background-color: #CD5C5C;">
+<body style="background-color: #FFA07A;">
 
-<div class="jumbotron text-center" style="margin-bottom:0">
+<div class="header" style="margin-bottom:0">
   <h1 align="center">Your Gossip</h1>
-  
-</div>
+  </div>
+
+  <button> Cerrar Sesión </button>
+
+
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -82,9 +73,10 @@
       <h2>About Me</h2>
       <textarea name="comentarios" rows="10" cols="40">Escribe aquí tus comentarios</textarea>
   <form action="logear.php" method="post">
-<input type="submit" name="grabar" value ="Like">
-<input type="submit" name="borrar" value ="Comentar">
-<input type="submit" name="editar" value ="Compartir">
+    <div class="like"></div>
+<input type="submit" name="like" value ="Like">
+<input type="submit" name="comentar" value ="Comentar">
+<input type="submit" name="compartir" value ="Compartir">
 
       <h3 align="right">Status</h3>
 
@@ -98,7 +90,7 @@
 
 </select>
 <div clas=clear></div>
-      <h5>Photo of me:</h5>
+      
       
       <p>Please be a bitch with the people you hate!</p>
      
@@ -109,9 +101,12 @@
       
       <textarea name="comentarios" rows="10" cols="40">Escribe aquí tus comentarios</textarea>
      <form action="logear.php" method="post">
-<input type="submit" name="grabar" value ="Like">
-<input type="submit" name="borrar" value ="Comentar">
-<input type="submit" name="editar" value ="Compartir">
+<input type="submit" name="like" value ="Like">
+<input type="submit" name="comentar" value ="Comentar">
+<input type="submit" name="compartir" value ="Compartir">
+<hr class="hidden-sm hidden-md hidden-lg">
+    </div>
+    <div class="col-sm-8">
 
       <p></p>
       <br>
@@ -119,32 +114,24 @@
       
       <textarea name="comentarios" rows="10" cols="40">Escribe aquí tus comentarios</textarea>
       <form action="logear.php" method="post">
-<input type="submit" name="grabar" value ="Like">
-<input type="submit" name="borrar" value ="Comentar">
-<input type="submit" name="editar" value ="Compartir">
+<input type="submit" name="like" value ="Like">
 
+<input type="submit" name="comentar" value ="Comentar">
+<input type="submit" name="compartir" value ="Compartir">
+<hr class="hidden-sm hidden-md hidden-lg">
+    </div>
+    <div class="col-sm-8">
+      <p></p>
 
 <form action="logear.php" method="post">
-if($_POST[grabar]) { instrucciones }
 
-
-if($_POST[borrar]) { instrucciones }
-
-
-if($_POST[editar]) { instrucciones }
 
 
     </div>
   </div>
 </div>
 
-
-  <h3 align="center">Social Media</h3>
-  
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <a href="#" class="fa fa-snapchat-ghost"></a>
-
-  <p align="center">XOXO...</p>
+ <p align="center">XOXO...</p>
 </div>
 
 </body>

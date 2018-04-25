@@ -1,9 +1,11 @@
 <?php
 	
 	$host = 'localhost';
-	$dbname =  'momos';
+	$dbname =  'blogemi';
 	$user = 'root';
 	$psw = '';
+
+	
 
 	try{
 		$pdo = new PDO("mysql:host=$host; dbname=$dbname; charset=utf8", $user, $psw);

@@ -1,18 +1,19 @@
 <?php
 require "./database.php";
-define(RUTA, 'http://localhost/blog/login.php');
+define(RUTA, 'http://localhost/blogemi/');
 $email=$_POST["email"];
-$pass=$_POST["psw"];
+$psw=$_POST["psw"];
 $name=$_POST["nombre"];
 $fecha_naci=$_POST["fecha"];
 
-$stm=$pdo->prepare("INSERT INTO signup(email, psw, name, fecha_naci) values(:email, :psw, :name, :fecha_naci)");
+$stm=$pdo->prepare("INSERT INTO usuarios(nom_us, email_us, pass_us, fch_nac, tipo_us) values(:nom, :email, :pass, :fecha, :tipo)");
 $stm->execute([
+	":nom"=>$name,
 	":email"=>$email,
-	":psw"=>$psw,
-	":name"=>$name,
-	":fecha_naci"=>$fecha_naci
-	]);
+	":pass"=>$psw,
+	":fecha"=>$fecha_naci,
+	':tipo'=>1
+]);
 
-	header('Location: '.RUTA);
+	header('Location: '.RUTA.'index.php');
 ?>

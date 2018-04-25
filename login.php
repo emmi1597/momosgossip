@@ -3,7 +3,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {font-family: Coming Soon, sans-serif, serif;}
+body {font-family: serif, sans-serif, serif;}
 
 input[type=text], input[type=password], input[type=date] {
     width: 100%;
@@ -46,8 +46,8 @@ button:small-caps {
 }
 
 img.avatar {
-    width: 25%;
-    border-radius: 30%;
+    width: 15%;
+    border-radius: 10%;
 }
 
 .container {
@@ -175,7 +175,7 @@ body {font-family: "Serif", Serif;}
     background-color: #777;
 }
 
-/* Style the tab content */
+
 .tabcontent {
     color: white;
     display: none;
@@ -192,6 +192,27 @@ body {font-family: "Serif", Serif;}
   background: #E9967A;
   margin-top: 150px;
 }
+.Snap {
+  
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    width: 120px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: center;     
+  }
+
+<?php 
+
+if (!isset($_SESSION['nombre'])) { 
+    $_SESSION['nombre'] = $_REQUEST['nombre']; 
+}  
+
+if ($_SESSION['nombre']===NULL){ 
+
+}else{ 
+    echo "Bienvenido ". $_SESSION["nombre"];} 
+?>
+
 
 </style>
 
@@ -238,25 +259,25 @@ document.getElementById("defaultOpen").click();
 
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="logear.php" method="post">
+  <form class="modal-content animate" action="login.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="login.png" alt="Avatar" class="Avatar">
     </div>
 
     <div class="container">
-      <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="user" required>
+      <label for="uname"><b>Email</b></label>
+      <input type="text" placeholder="Enter Username" name="email" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="pas" required>
+      <input type="password" placeholder="Enter Password" name="psw" required>
         
-      <button type="submit">Login</button>
+      <button type="submit" name="ingresar" value="Login">Login</button>
       <label>
         <input type="checkbox" checked="checked" name="remember"> Remember me
       </label>
     </div>
-
+   
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
       <span class="psw">Forgot <a href="#">password?</a></span>
@@ -312,8 +333,11 @@ window.onclick = function(event) {
   </form>
 </div>
 <div class="footer">
-  <h2>Created By: Emi Vargas </h2>
-  <h3>All rights reserved </h3>
+  <h3 align="center">Social Media</h3>
+ 
+  <img src="momos.png" alt="Snap" class="Snap">
+  <h2 align="center">Created By: Emi Vargas </h2>
+  <h3 align="left">All rights reserved </h3>
 </div>
 
 <script>
